@@ -1,3 +1,5 @@
+import React from 'react';
+
 class Header extends React.Component {
     render(){
         const styleHeader = {
@@ -15,3 +17,4 @@ class Header extends React.Component {
         )
     }
 }
+export default Header;
