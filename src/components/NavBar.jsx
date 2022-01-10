@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 class Header extends React.Component {
     render(){
         const styleHeader = {
             backgroundColor: "white",
             fontFamily: "Arial",
-            color: "black",
-            fontSize: "50"
+            color: "green",
+            fontSize: "30"
         }
         return(
-            <>
+            <Fragment>
                 <h1 style={styleHeader}>AFK's Store</h1>
                 
-            </>
+            </Fragment>
         )
     }
 }
