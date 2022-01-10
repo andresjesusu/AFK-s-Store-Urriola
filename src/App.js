@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          AFK'S Store
+          AFK'S Store 
         </a>
       </header>
     </div>
