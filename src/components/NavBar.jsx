@@ -6,14 +6,14 @@ class Header extends React.Component {
             backgroundColor: "white",
             fontFamily: "Arial",
             color: "black",
-            fontSize: "30"
+            fontSize: "50"
         }
         return(
-            <Fragment>
-                <h1>AFK's Store</h1>
-                <ul> <li>Juegos PS4</li> <li>JUEGOS PS5</li>
-                </ul>
-            </Fragment>
+            <>
+                <h1 style={styleHeader}>AFK's Store</h1>
+                
+            </>
         )
     }
 }
+export default Header;

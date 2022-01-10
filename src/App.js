@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/NavBar.jsx';
 function App() {
   return (
     
     <div className="App">
+      <Header/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -15,7 +17,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          AFK'S Store 
+          AFK'S Store
         </a>
       </header>
     </div>
