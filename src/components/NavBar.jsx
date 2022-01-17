@@ -1,6 +1,11 @@
 import React, { Fragment } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CartWidget from "./CartWidget.jsx";
 
-const Header = () => {
+
+
+
+const NavBar = () => {
   const styleHeader = {
     backgroundColor: "",
     fontFamily: "Arial",
@@ -44,11 +49,12 @@ const Header = () => {
         <input class="form-control me-2" type="text" placeholder="Search"/>
         <button class="btn btn-primary" type="button">Search</button>
       </form>
+      <CartWidget/>
       </div>
       </nav>
-
     </Fragment>
+    
   );
 };
 
-export default Header;
+export default NavBar;
