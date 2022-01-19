@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from "./CartWidget.jsx";
+import './index.css';
 
 
 
@@ -8,12 +9,12 @@ import CartWidget from "./CartWidget.jsx";
 const NavBar = () => {
   const styleHeader = {
     backgroundColor: "",
-    fontFamily: "Arial",
+    fontFamily: "new roman",
     color: "Grey",
     fontSize: "30",
   };
   return (
-    <Fragment>
+    <Fragment style={{fontSize: "3rem"}}>
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
       <div class="container">
 
