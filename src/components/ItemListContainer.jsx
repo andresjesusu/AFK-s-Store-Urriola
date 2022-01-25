@@ -8,8 +8,7 @@ const ItemList = () => {
     };
     return (
       
-       <div style={styleHeader}> <p>Bienvenidos a mi primer e-commerce
-           Soy Andres Urriola, curso de React Jsssss</p></div>
+       <div style={styleHeader}> <p>Mi carrito de Compra</p></div>
       
       
     );
