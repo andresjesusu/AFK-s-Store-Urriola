@@ -1,16 +1,20 @@
-// const data = [
-// {name:"Zelda", precio:200, stock:2}, 
-// {name:"ninja saga", precio:200, stock:2}, 
-// {name:"mario", precio:200, stock:2}
-// ]
+import React from "react";
+import Item from './Item';
+import { Container, Row } from 'react-bootstrap';
+import ItemCount from './ItemCount';
 
-// const promise1 = () => {
-//     return new Promise ((resolve, reject) => {
-//     setTimeout(() => {
-//         resolve([data, data,data]);
-//     }, 3000);
-    
-// });
-// }
 
-// promise1().then((data) => console.log(data))
+
+const ItemList = ({items}) => {   
+    return(
+        <Container>
+            <h2>Juegos Switch</h2>
+        <Row xs={6} md={4} className="g-4 mt-1">
+           {items.map(item => { 
+           return <Item key={item.name} item={item}/>})}      
+            </Row>
+        </Container>
+    ) 
+}
+
+export default ItemList;

@@ -1,22 +1,25 @@
-// function App() {
+import React from "react";
+import { Card } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import ItemCount from './ItemCount';
 
-//     const [products] =useState([
-//       {name:"Zelda", precio:200, stock:2, imagen:"imagen1.jpg", descripcion:["AURA FRESCA, Consigan el botín y lbte estará disponible ."]},
-//       {name: "lol", precio:800, stock:3},
-//       {name:"runaterra", precio:200, stock:2},
-//       {name:"fifa", precio:200, stock:23},
-//       {name:"lego", precio:200, stock:60},
-  
-  
-//     ])
-//     return (
-      
-        
-//         <div style={{ marginBottom: 10}}> 
-//          {products.map(product => {
-//            return <Product name={product.name} precio={product.precio} stock={product.stock}/>
-//          })}
-//          </div>
-        
-//     );
-//   }
+
+
+const Item = ({ item }) => {    
+    return (
+    <div>
+        <Card style={{ width: '250px', color:"white",backgroundColor:"grey" }} key={item.name}>
+  <Card.Img style={{marginTop:"10px", paddingRight:"10px", paddingLeft:"10px"}} variant="top" src={item.pictureUrl}/>
+  <Card.Body>
+    <Card.Title style={{fontSize:"25px"}}>{item.name}</Card.Title>
+    <Card.Text style={{fontSize:"12px"}}>{item.descripcion}
+    </Card.Text>
+    {/* <Button variant="secondary">Ver en la Pagina</Button> */}
+    <ItemCount precio={item.precio} stock={item.stock}/>  
+    </Card.Body>
+</Card>
+</div>
+    )
+}
+
+export default Item;

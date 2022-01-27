@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from "./CartWidget.jsx";
-import './index.css';
 
 
 
@@ -14,7 +13,9 @@ const NavBar = () => {
     fontSize: "30",
   };
   return (
-    <Fragment style={{fontSize: "3rem"}}>
+    <Fragment style={{fontSize: "3rem", backgroundColor: "white"}}>
+      <header> <br /><br /><br /> <br />
+
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
       <div class="container">
 
@@ -48,11 +49,12 @@ const NavBar = () => {
         </ul>
         <form class="d-flex">
         <input class="form-control me-2" type="text" placeholder="Search"/>
-        <button class="btn btn-primary" type="button">Search</button>
+        <button class="btn btn-secondary" type="button">Search</button>
       </form>
       <CartWidget/>
       </div>
       </nav>
+      </header>
     </Fragment>
     
   );
