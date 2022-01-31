@@ -1,49 +1,48 @@
 import React, { Fragment } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from "./CartWidget.jsx";
-
-
-
+import logo from "./logo.png";
+import {Link} from 'react-router-dom';
 
 const NavBar = () => {
   const styleHeader = {
     backgroundColor: "",
     fontFamily: "new roman",
-    color: "Grey",
+    color: "black",
     fontSize: "30",
   };
   return (
-    <Fragment style={{fontSize: "3rem", backgroundColor: "white"}}>
+    <Fragment>
       <header> <br /><br /><br /> <br />
 
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <nav class="navbar navbar-expand-sm bg-light navbar-secondary fixed-top border-bottom border-red">
       <div class="container">
 
-        <h1 style={styleHeader}>AFK's Store  </h1>
+       <Link to={"/"}><a href="#"><img style={{ width:"200px"}} src={logo} alt="" /></a></Link> 
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="#">
-              PS4
+              <p style={{color:"black"}}>PS4</p>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              PS5
+          <a class="nav-link" href="#">
+              <p style={{color:"black"}}>PS5</p>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              STEAM
+          <a class="nav-link" href="#">
+              <p style={{color:"black"}}>Switch</p>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              PC
+          <a class="nav-link" href="#">
+              <p style={{color:"black"}}>PC</p>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              ACCESORIOS
+          <a class="nav-link" href="#">
+              <p style={{color:"black"}}>ACCESORIOS</p>
             </a>
           </li>
         </ul>

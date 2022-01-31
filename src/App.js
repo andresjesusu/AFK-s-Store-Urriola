@@ -1,19 +1,26 @@
 import './App.css';
-import NavBar from './components/NavBar.jsx';
-import ItemListContainer from './components/ItemListContainer';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './components/Home';
+import NoPage from './components/NoPage';
+import Layout from './components/Layout';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
 
 
-function App() {
+const App = () => {
 
   return (
+  <BrowserRouter>
+    <Routes>
+     <Route path="/" element={ <Layout/>} >
+     <Route index element={ <Home/>} />
+     <Route path="/itemD" element={ <ItemDetailContainer/>} />
+     <Route path="*" element={ <NoPage/>} />
+    </Route>
     
-    <div className="App">
-    
-      <NavBar/>
-      <ItemListContainer greeting="Bienvenidos a AFK's Store Online!"/>
-      
-    </div>
+    </Routes>
+  </BrowserRouter>
   );
 }
 
