@@ -2,8 +2,22 @@ import React from "react";
 import { Breadcrumb, Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
+import {useState} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faCartArrowDown} from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom';
+
+
 
 const ItemDetail = ({ item }) => {
+
+    const [itemsQty, setItemsQty] = useState();
+    const navigate = useNavigate()
+
+  const goToCart = () => {
+    navigate(`/Cart/`)
+}
+
   return (
     <div>
         <Container>
@@ -68,8 +82,10 @@ const ItemDetail = ({ item }) => {
                                     <p className="text-success"><i className="fa fa-credit-card"></i> Hasta 12 cuotas sin tarjeta</p>
                                     <label for="quant">Cantidad</label>
                                     <div className="mb-3">
-                                        <ItemCount precio={item.precio} stock={item.stock}/>                                    
+                                        <ItemCount precio={item.precio} stock={item.stock} setItemsQty={setItemsQty}/>                                    
                                         </div>
+                                        <Button onClick={ () => goToCart(item, itemsQty)} variant="primary" size="lg">Añadir al Carrito <FontAwesomeIcon icon={faCartArrowDown}/></Button>        
+
                                 </Col>
                             </Row>
 
