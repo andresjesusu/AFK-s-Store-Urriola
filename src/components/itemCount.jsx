@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import { Button } from 'react-bootstrap';
 
-const ItemCount = ({ name, precio, stock}) => {
+const ItemCount = ({ precio, stock}) => {
 
   const [itemsQty, setItemsQty] = useState(0);
   

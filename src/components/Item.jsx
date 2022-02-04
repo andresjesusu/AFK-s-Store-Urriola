@@ -8,19 +8,21 @@ import { useNavigate } from 'react-router-dom';
 
 const Item = ({ item }) => {  
     const navigate = useNavigate()
+    const {id, title,price} = item
+
 
 const goToProduct = () => {
-    navigate(`/itemD/`)
+        navigate(`/product/${id}`)
 }
 
       
     return (
     <div>
-        <Card border="secondary" style={{ width: '200px', color:"white",backgroundColor:"grey" }} key={item.name}>
-        <Link to={"/itemD"}><a href="#"></a><Card.Img style={{marginTop:"10px", paddingRight:"10px", paddingLeft:"10px"}} variant="top" src={item.pictureUrl}/></Link>
+        <Card border="secondary" style={{ width: '250px', color:"white",backgroundColor:"" }} key={item.id}>
+        <Link to={`/product/${id}`}><Card.Img style={{marginTop:"10px", paddingRight:"10px", paddingLeft:"10px"}} variant="top" src={item.pictureUrl}/></Link>
   <Card.Body>
-  <Card.Title style={{fontSize:"20px", color:"black"}}>{item.name}</Card.Title>
-  <Button variant="secondary" onClick={() => goToProduct()}>Ver detalles</Button>
+  <Card.Title style={{fontSize:"20px", color:"black"}}>{item.title}</Card.Title>
+  <Button variant="danger" onClick={() => goToProduct()}>Ver detalles</Button>
 
     </Card.Body>
 </Card>
@@ -29,8 +31,3 @@ const goToProduct = () => {
 }
 
 export default Item;
-
-{/* <Card.Text style={{fontSize:"12px"}}>{item.descripcion}
-</Card.Text>
-{/* <Button variant="secondary">Ver en la Pagina</Button> */}
-{/* <ItemCount precio={item.precio} stock={item.stock}/> */}

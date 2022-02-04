@@ -1,12 +1,16 @@
+import Spinner from 'react-bootstrap/Spinner'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Spinner} from 'reactstrap'
+import './Loading.css'
 
 const Loading = () => {
 
     return(
-        <div>
-            <Spinner color="Dark"/>
-        </div>
+            <div className='divPadre'>
+               <div className='divHijo'>
+                   <Spinner animation="border" variant="danger" className='spinnerReactstrap'/>
+               </div>
+           
+            </div>
     )
 
 }

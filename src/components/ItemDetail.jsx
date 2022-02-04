@@ -31,7 +31,7 @@ const ItemDetail = ({ item }) => {
                             <Breadcrumb>
                                 <Breadcrumb.Item>Switch</Breadcrumb.Item>
                                 <Breadcrumb.Item>Juegos</Breadcrumb.Item>
-                                <Breadcrumb.Item active>{item.name}</Breadcrumb.Item>
+                                <Breadcrumb.Item active>{item.title}</Breadcrumb.Item>
                             </Breadcrumb>
                             </nav>
                         </Card.Header>
@@ -47,38 +47,37 @@ const ItemDetail = ({ item }) => {
                                             {item.length > 0 ? <img src={item.pictureUrl[0].item.pictureUrl} alt="" /> : null}
                                         </Col>
                                     </Col>
-                                    <Col classNa
-                                    me="product-seller-recommended">
+                                    <Col className="product-seller-recommended">
                                         <Row className="product-description mb-5" style={{textAlign: "left"}}>
                                             <h5 className="mt-3 mb-4">Características</h5>
                                             <ul>
-                                                {item.detalles}
+                                                {item.details}
                                             </ul>
                                             <ul >
-                                                {item.detalles2}
+                                                {item.details2}
                                                 
                                             </ul>
                                             <ul >
-                                                {item.detalles3}
+                                                {item.details3}
                                                 
                                             </ul>
                                             <ul >
-                                                {item.detalles4}
+                                                {item.details4}
                                                 
                                             </ul>
                                             <ul >
-                                                {item.detalles5}
+                                                {item.details5}
                                                 
                                             </ul> <hr />
                                             <h2 className="mb-4">Descripción</h2>
-                                            {item.descripcion}
+                                            {item.detailss}
                                         </Row>
                                     </Col>
                                 </Col>
                                 <Col className="product-payment-details">
                                     {/* <p className="last-sold text-muted"><small>{itemsQty} vendidos</small></p> */}
                                     <h4 className="product-title mb-2">{item.name}</h4>
-                                    <h2 className="product-price display-4">$ {item.precio}</h2>
+                                    <h2 className="product-price display-4">$ {item.price}</h2>
                                     <p className="text-success"><i className="fa fa-credit-card"></i> Hasta 12 cuotas sin tarjeta</p>
                                     <label for="quant">Cantidad</label>
                                     <div className="mb-3">

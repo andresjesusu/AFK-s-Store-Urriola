@@ -1,15 +1,16 @@
 import React from "react";
 import Item from './Item';
 import { Container, Row } from 'react-bootstrap';
+import { productList } from "./ProductList";
 
 
 const ItemList = ({items}) => {   
     return(
         <Container>
-            <h2>Juegos Switch</h2>
+            <h1 className="bienvenidosH">Bienvenidos a AFK'S Store</h1>
+            <h2 className="bienvenidosH">Juegos Switch</h2>
         <Row xs={1} md={5} className="g-4 mt-1">
-           {items.map(item => { 
-           return <Item key={item.name} item={item}/>})}      
+        {productList.map((item) => {return (<div key={item.id}><Item  item={item}/></div>)})}    
             </Row>
         </Container>
     ) 

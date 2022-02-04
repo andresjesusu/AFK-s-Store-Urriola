@@ -1,57 +1,45 @@
 import {useState, useEffect} from 'react';
 import ItemList from './ItemList';
-
-const items = [{
-name: "Super Mario Maker 2",
-
-pictureUrl: "https://http2.mlstatic.com/D_NQ_NP_757148-MLA40917205776_022020-O.webp"},
-
-{name: "Super Mario 3D World",
-
-pictureUrl: "https://http2.mlstatic.com/D_NQ_NP_940603-MLA44886780516_022021-O.webp"},
-
-{name: "Mario Party SuperStars",
-
-pictureUrl: "https://http2.mlstatic.com/D_NQ_NP_738842-MLA48119679478_112021-O.webp"},
-
-{name: "Super Smash Bros  Ultimate",
-pictureUrl: "https://www.cjs-cdkeys.com/product_images/img/o/17012.jpg"},
-
-{name: "Zelda Link's Awakening",
-pictureUrl: "https://http2.mlstatic.com/D_NQ_NP_968049-MLA40927047075_022020-O.webp"}
+import Loading from './Loading';
+import './Loading.css'
+import mario from "./mario.png";
+import mario2 from "./mario2.png";
+import { productList } from "./ProductList";
+import { useParams } from "react-router-dom";
 
 
-]
+export const getFetch = (id) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(()=>{
+      const product = productList.find((product) => {
+        return product.id;
+      });
+      resolve(product);
+    }, 500)
+  });
+};
 
-const ItemListContainer = ({greeting}) => {   
-  
-   const [products, setProducts] =useState([]);
+const ItemListContainer = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState();
+  useEffect(() => {
+    getFetch(id).then((results) => {
+      setProduct(results);
+    });
+  }, [id]);
 
-   useEffect(() =>{
-
-     let getItems = new Promise ((resolve, reject) => {
-
-       setTimeout(() => {
-
-       items && items.length ? resolve(items) : reject("error 404")
-
-       }, 2000);
-     });
-
-     getItems.then((resolve) => {setProducts(resolve)})
-
-   }, [])
-   
-   return(
-    <div>
-          <h1>{greeting}</h1>
-          <ItemList items={products}/>
-    </div>
-   )
-
-      
-  
-}
+  return <div>
+    {product ? <ItemList item={product} /> : <Loading />}
+    <div className='bodyImagen'>
+          <div>
+         <img src={mario} alt="" />
+         </div>
+         <div>
+         <img src={mario2} alt="" />
+         </div>
+         </div></div>;
+    
+};
 
 export default ItemListContainer;
 
