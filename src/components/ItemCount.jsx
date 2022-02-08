@@ -1,11 +1,9 @@
 import {useState, useEffect} from 'react';
 import { Button } from 'react-bootstrap';
 
-const ItemCount = ({ name, precio, stock}) => {
+const ItemCount = ({ itemsQty, stock, setItemsQty, price}) => {
 
-  const [itemsQty, setItemsQty] = useState(0);
-  
-  const total = itemsQty * precio;
+  const total = itemsQty * price;
 
   const stockReal = (qty) => {
     if (qty <= stock){

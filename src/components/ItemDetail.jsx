@@ -2,21 +2,26 @@ import React from "react";
 import { Breadcrumb, Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCartArrowDown} from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
+import { CartContext } from "../context/CartContext";
 
 
 
 const ItemDetail = ({ item }) => {
 
-    const [itemsQty, setItemsQty] = useState();
+    const {addItem} = useContext(CartContext);
+
+    const [itemsQty, setItemsQty] = useState(0);
     const navigate = useNavigate()
 
   const goToCart = () => {
     navigate(`/Cart/`)
 }
+
+
 
   return (
     <div>
@@ -76,14 +81,15 @@ const ItemDetail = ({ item }) => {
                                 </Col>
                                 <Col className="product-payment-details">
                                     {/* <p className="last-sold text-muted"><small>{itemsQty} vendidos</small></p> */}
-                                    <h4 className="product-title mb-2">{item.name}</h4>
+                                    <h4 className="product-title mb-2">{item.title}</h4>
                                     <h2 className="product-price display-4">$ {item.price}</h2>
                                     <p className="text-success"><i className="fa fa-credit-card"></i> Hasta 12 cuotas sin tarjeta</p>
-                                    <label for="quant">Cantidad</label>
+                                    <label>Cantidad</label>
                                     <div className="mb-3">
-                                        <ItemCount precio={item.precio} stock={item.stock} setItemsQty={setItemsQty}/>                                    
+                                        <ItemCount itemsQty={itemsQty} stock={item.stock} setItemsQty={setItemsQty}/>                                    
                                         </div>
-                                        <Button onClick={ () => goToCart(item, itemsQty)} variant="primary" size="lg">Añadir al Carrito <FontAwesomeIcon icon={faCartArrowDown}/></Button>        
+                                        <Button onClick={ () => addItem(item, itemsQty)} variant="primary" size="lg">Añadir al Carrito</Button>        
+                                        <Button onClick={ () => goToCart()} variant="danger" size="lg">Finalizar compra<FontAwesomeIcon icon={faCartArrowDown}/></Button>        
 
                                 </Col>
                             </Row>

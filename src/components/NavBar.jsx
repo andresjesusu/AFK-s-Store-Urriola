@@ -4,14 +4,10 @@ import CartWidget from "./CartWidget.jsx";
 import logo1 from "./logo1.png";
 import { Container, Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import './Loading.css'
+import { CartContext, CartProvider } from '../context/CartContext';
 
 const NavBar = () => {
-  const styleHeader = {
-    backgroundColor: "",
-    fontFamily: "new roman",
-    color: "black",
-    fontSize: "30",
-  };
+
   return (
     <>
   <Navbar bg="danger" variant="dark" className='navBarC'>
@@ -40,7 +36,8 @@ const NavBar = () => {
         <Button variant="dark">Buscar</Button>
       </Form>
     </Nav>
-    <CartWidget/>
+<CartWidget/>
+
     </Container>
   </Navbar>
 </>

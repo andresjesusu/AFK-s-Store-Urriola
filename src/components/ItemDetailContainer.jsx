@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { CartProvider } from "../context/CartContext";
 import ItemDetail from "./ItemDetail";
 import Loading from "./Loading";
 import { productList } from "./ProductList";
@@ -28,8 +29,11 @@ const ItemDetailContainer = () => {
     });
   }, [id]);
 
-  return <div>
-    {product ? <ItemDetail item={product} /> : <Loading />}</div>;
+  return (
+  <div>
+    {product ? <CartProvider><ItemDetail item={product} /></CartProvider> : <Loading />}
+    </div>
+  )
 };
 
 export default ItemDetailContainer;
