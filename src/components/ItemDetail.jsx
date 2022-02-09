@@ -3,23 +3,35 @@ import { Breadcrumb, Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
 import {useState, useContext} from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCartArrowDown} from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from "../context/CartContext";
 
-
-
 const ItemDetail = ({ item }) => {
 
-    const {addItem} = useContext(CartContext);
-
-    const [itemsQty, setItemsQty] = useState(0);
+    const {addItem, removeItem} = useContext(CartContext);
     const navigate = useNavigate()
+    const goToCart = () => {
+        navigate(`/Cart/`)
+    }
+    
+    const volver = () => {
+        navigate("/", { replace: false });
+      };
 
-  const goToCart = () => {
-    navigate(`/Cart/`)
-}
+
+
+const [itemsQty, setItemsQty] = useState(1);
+const [agregarCarrito, setAgregarCarrito] = useState(false);
+const [cambiarBotones, setCambiarBotones] = useState(false);
+const [eliminarCarrito, setEliminarCarrito] = useState(false);
+const onAdd = () => {
+  setCambiarBotones(true);
+};
+
+const mostrarCarrito = () => {
+  addItem({ qty: itemsQty, ...item });
+  setAgregarCarrito(true);
+};
 
 
 
@@ -80,16 +92,31 @@ const ItemDetail = ({ item }) => {
                                     </Col>
                                 </Col>
                                 <Col className="product-payment-details">
-                                    {/* <p className="last-sold text-muted"><small>{itemsQty} vendidos</small></p> */}
+                                    <p className="last-sold text-muted"><small>{itemsQty} vendidos</small></p>
                                     <h4 className="product-title mb-2">{item.title}</h4>
                                     <h2 className="product-price display-4">$ {item.price}</h2>
                                     <p className="text-success"><i className="fa fa-credit-card"></i> Hasta 12 cuotas sin tarjeta</p>
                                     <label>Cantidad</label>
-                                    <div className="mb-3">
-                                        <ItemCount itemsQty={itemsQty} stock={item.stock} setItemsQty={setItemsQty}/>                                    
-                                        </div>
-                                        <Button onClick={ () => addItem(item, itemsQty)} variant="primary" size="lg">Añadir al Carrito</Button>        
-                                        <Button onClick={ () => goToCart()} variant="danger" size="lg">Finalizar compra<FontAwesomeIcon icon={faCartArrowDown}/></Button>        
+                                    <ItemCount stock={item.stock} itemsQty={itemsQty} setItemsQty={setItemsQty} onAdd={onAdd} /> 
+                                    {cambiarBotones && ( 
+                                    <> 
+                                    <div>
+                                     <Button variant="primary" onClick={() => 
+                                            mostrarCarrito()}>
+                                      Agregar al carrito
+                                     </Button>
+                                    {agregarCarrito && (
+                                    <Button onClick={goToCart} variant="danger">
+                                        Finalizar compra
+                                    
+                                    </Button>
+                                    )}
+                                   </div>
+                                     </>
+                                       )}
+                                   <div>
+                                   <Button variant="secondary" onClick={volver}>Volver</Button>
+                                    </div>       
 
                                 </Col>
                             </Row>

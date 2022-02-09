@@ -1,23 +1,33 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { makeStyles } from "@material-ui/core";
 import { useParams } from "react-router-dom";
-import { CartProvider } from "../context/CartContext";
 import ItemDetail from "./ItemDetail";
 import Loading from "./Loading";
-import { productList } from "./ProductList";
+import { productListData } from "./ProductListData.js";
+
+
+const useStyle = makeStyles(() => ({
+  detailContainer:{
+    display: "flex",
+    margin: "36px",
+    justifyContent: "center",
+  }
+}));
 
 export const getFetch = (id) => {
   return new Promise((resolve, reject) => {
     setTimeout(()=>{
-      const product = productList.find((product) => {
+      const product = productListData.find((product) => {
         return product.id === id;
       });
       resolve(product);
-    }, 1000)
+    }, 2000)
   });
 };
 
 const ItemDetailContainer = () => {
+  const classes = useStyle();
   const { id } = useParams();
   const [product, setProduct] = useState();
 
@@ -29,11 +39,7 @@ const ItemDetailContainer = () => {
     });
   }, [id]);
 
-  return (
-  <div>
-    {product ? <CartProvider><ItemDetail item={product} /></CartProvider> : <Loading />}
-    </div>
-  )
+  return <div>{product ? <ItemDetail item={product} /> : <Loading />}</div>;
 };
 
 export default ItemDetailContainer;

@@ -1,25 +1,41 @@
-import React from "react";
+import React, { useContext, useEffect, useState} from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCartArrowDown, faCartPlus} from '@fortawesome/free-solid-svg-icons'
 import { Button } from 'react-bootstrap';
 import { CartContext, CartProvider } from '../context/CartContext';
-import { useContext, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 
 
 const CartWidget = () => {
   const {items} = useContext(CartContext);
+  const [cantidadItems, setCantidadItems] = useState();
+
+  const navigate = useNavigate()
+  const goToCart = () => {
+      navigate(`/Cart/`)
+  }
+
   useEffect(() => {
-    console.log(items);
+    let total = 0;
+    items.forEach((item) => {
+      total += item.qty;
+    });
+    setCantidadItems(total);
   }, [items]);
 
     return (
-    <Button variant="dark" id='pay' className='App' 
+      <div>
+      {cantidadItems >= 0 ? (
+
+    <Button onClick={goToCart} variant="secondary" id='pay' className='App' 
     style={{fontSize:"1em", color: 'white', 
     marginLeft:"200px"}}>
-      <FontAwesomeIcon icon={faCartArrowDown}/>                 ✚
-      <p>{items.length}</p>
+      <FontAwesomeIcon icon={faCartArrowDown}/> +  
+      {cantidadItems}
       </Button>
+   ) : null}
+      </div>
       
     );
 }

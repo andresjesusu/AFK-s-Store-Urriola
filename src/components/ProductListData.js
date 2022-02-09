@@ -1,4 +1,4 @@
-export const productList = [
+export const productListData = [
     {title: "Super Mario Maker 2",
     id:"Super Mario Maker 2",
     price:11250,

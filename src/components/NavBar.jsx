@@ -2,9 +2,8 @@ import React, { Fragment } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from "./CartWidget.jsx";
 import logo1 from "./logo1.png";
-import { Container, Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown, Form, FormControl, Button, NavLink } from 'react-bootstrap';
 import './Loading.css'
-import { CartContext, CartProvider } from '../context/CartContext';
 
 const NavBar = () => {
 
@@ -36,7 +35,9 @@ const NavBar = () => {
         <Button variant="dark">Buscar</Button>
       </Form>
     </Nav>
-<CartWidget/>
+    <NavLink to="/cart">
+              <CartWidget/>
+    </NavLink>
 
     </Container>
   </Navbar>

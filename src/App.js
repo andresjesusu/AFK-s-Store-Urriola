@@ -13,6 +13,7 @@ import { CartProvider } from "./context/CartContext";
 const App = () => {
 
   return (
+    <div className="App">
     <CartProvider>
   <BrowserRouter>
     <Routes>
@@ -26,7 +27,7 @@ const App = () => {
     </Routes>
   </BrowserRouter>
   </CartProvider>
-
+  </div>
   );
 }
 
