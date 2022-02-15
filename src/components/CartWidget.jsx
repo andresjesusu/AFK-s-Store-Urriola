@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState} from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCartArrowDown, faCartPlus} from '@fortawesome/free-solid-svg-icons'
+import {faCartShopping} from '@fortawesome/free-solid-svg-icons'
 import { Button } from 'react-bootstrap';
 import { CartContext, CartProvider } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
@@ -28,12 +28,12 @@ const CartWidget = () => {
       <div>
       {cantidadItems >= 0 ? (
 
-    <Button onClick={goToCart} variant="secondary" id='pay' className='App' 
+    <div onClick={goToCart} variant="secondary" id='pay' className='App' 
     style={{fontSize:"1em", color: 'white', 
     marginLeft:"200px"}}>
-      <FontAwesomeIcon icon={faCartArrowDown}/> +  
+      <FontAwesomeIcon icon={faCartShopping}/> 
       {cantidadItems}
-      </Button>
+      </div>
    ) : null}
       </div>
       

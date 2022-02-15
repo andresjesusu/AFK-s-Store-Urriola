@@ -108,7 +108,7 @@ const Cart = () => {
                   </h4>
                 </Col>
                 <Col xs={3}>
-                  <Button variant="success">Terminar compra</Button>
+                  <Button variant="success">Terminar comprar</Button>
                 </Col>
               </Row>
             </Card.Footer>

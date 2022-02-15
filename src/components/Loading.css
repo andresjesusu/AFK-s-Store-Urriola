@@ -27,15 +27,25 @@
     
 }
 
-.bodyImagen {
-display: flex;
-justify-content:flex-start;
-width: 336px;
-height: 331px;
-margin-left: 450px;
-}
+/* .bodyImagen {
+
+background-image: url(./mario.png);
+background-repeat: no-repeat;
+background-position: 300px;
+background-position-x: 20px;
+background-position-y: 650px;
+background-color: #eccfd2;
+} */
 
 .bienvenidosH {
     font-family: 'Chakra Petch', sans-serif;
     font-weight: 540;
+}
+
+.body1{
+background-image: url(./mario.png);
+background-repeat: no-repeat;
+background-position: 300px;
+background-position-x: 20px;
+background-position-y: 650px;
 }

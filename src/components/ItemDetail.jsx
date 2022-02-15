@@ -1,5 +1,5 @@
 import React from "react";
-import { Breadcrumb, Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Breadcrumb, Button, Card, Col, Container, Row, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
 import {useState, useContext} from 'react';
@@ -55,15 +55,36 @@ const mostrarCarrito = () => {
                         <Card.Body className="store-body">
                             <Row>
                                 <Col xs={7} className="product-info">
-                                    <Col className="product-gallery">
-                                        <Col className="product-gallery-thumbnails">
-                                            <ol className="thumbnails-list list-unstyled">
-                                            <Card.Img style={{width:"300px"}} variant="top" src={item.pictureUrl}/>                                            </ol>
-                                        </Col>
-                                        <Col xs={10} className="product-gallery-featured">
-                                            {item.length > 0 ? <img src={item.pictureUrl[0].item.pictureUrl} alt="" /> : null}
-                                        </Col>
-                                    </Col>
+                        <Carousel variant="dark">
+  <Carousel.Item interval={2000}>
+    <img style={{width :"300px", height:"450px"}}
+      
+      src={item.pictureUrl}
+      alt="First slide"
+    />
+  </Carousel.Item>
+  <Carousel.Item interval={2000}>
+  <img style={{width :"700px", height:"450px"}}
+      
+      src={item.pictureUrl2}
+      alt="Second  slide"
+    />
+  </Carousel.Item>
+  <Carousel.Item>
+  <img style={{width :"700px", height:"450px"}}
+      
+      src={item.pictureUrl3}
+      alt="Third  slide"
+    />
+  </Carousel.Item>
+  <Carousel.Item>
+  <img style={{width :"700px", height:"450px"}}
+      
+      src={item.pictureUrl4}
+      alt="Four slide"
+    />
+  </Carousel.Item>
+</Carousel>
                                     <Col className="product-seller-recommended">
                                         <Row className="product-description mb-5" style={{textAlign: "left"}}>
                                             <h5 className="mt-3 mb-4">Características</h5>

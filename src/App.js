@@ -7,7 +7,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import ItemListContainer from './components/ItemListContainer';
 import { CartProvider } from "./context/CartContext";
-
+// import AddItem from './components/AddItem';
 
 
 const App = () => {
@@ -21,6 +21,7 @@ const App = () => {
      <Route index element={ <ItemListContainer greeting="Bienvenidos a AFK's Store Online!"/>} />
      <Route path="/product/:id" element={<ItemDetailContainer />} />
      <Route exact path="/cart" element={<Cart/>}></Route>
+     {/* <Route exact path="/AddItem" element={<AddItem/>}></Route> */}
      <Route exact path="*" element={ <NoPage/>} />
     </Route>
     
