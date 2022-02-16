@@ -1,12 +1,63 @@
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import React, { useContext } from "react";
+import { addDoc, collection, doc } from "firebase/firestore";
+import { db } from "../firebase.js";
+import { useState } from 'react';
+import { CheckCircle } from 'react-bootstrap-icons';
 
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { items, removeItem, totalCart } = useContext(CartContext);
+  const [ success, setSuccess ] = useState(false);
+  const [orderId, setOrderId] = useState({
+    name: "",
+    lastname: "",
+    address: "",
+    email: "",
+    phone: "",
+  });
+
+  const checkout = () => {
+    console.log(items);
+    if (items.length === 0) {
+      alert("no tienes items en el carrito");
+      return;
+    }
+    const itemsToBuy = items.map((item) => {
+      return {
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        qty: item.qty,
+      };
+    });
+
+    const buyer = {
+      name: "Andres Urriola",
+      phone: "666/666",
+      email: "email@mail.com",
+      fecha: new Date
+    };
+
+    const order = { buyers: buyer, items: itemsToBuy, total: {totalCart} };
+
+    addDoc( collection (db, "orders"), order)
+        .then(doc => {
+          setOrderId(doc.id)
+          setSuccess(true)
+          console.log("el id de mi orden creada es ", doc.id);
+        })
+        .catch(err => {
+          console.log("algo malo paso", err);
+        })
+  
+  };
+
   return (
+    <div className="cart_section text-xs-left" style={{position: "relative"}}>
+
     <Container>
       <Row>
         <Col xs={{ span: 8, offset: 2 }}>
@@ -108,7 +159,7 @@ const Cart = () => {
                   </h4>
                 </Col>
                 <Col xs={3}>
-                  <Button variant="success">Terminar comprar</Button>
+                  <Button variant="success" onClick={checkout}>Terminar comprar</Button>
                 </Col>
               </Row>
             </Card.Footer>
@@ -116,6 +167,27 @@ const Cart = () => {
         </Col>
       </Row>
     </Container>
+    {success ? 
+      <div style={{ 
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100v%",
+          background: "rgb(76 175 80 / 90%)",
+          textAlign: "center",
+          color: "white",
+          marginTop: "14%",
+      }}>
+          <CheckCircle style={{ fontSize: 78}} />
+          <h1>Tu compra se ha realizado con exito</h1>
+          <p>Esta es tu orden de compra{orderId}</p>
+          <Button as={Link} to="/">Seguir comprando</Button>
+      </div>
+  :
+      null
+  }
+  </div>
   );
 };
 export default Cart;

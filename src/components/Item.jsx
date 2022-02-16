@@ -9,26 +9,26 @@ import { useNavigate } from 'react-router-dom';
 
 const Item = ({ item }) => {  
     const navigate = useNavigate()
-    const {id, title,price} = item
+    const {key, title,price} = item
     const [open, setOpen] = useState(false);
 
 
 const goToProduct = () => {
-        navigate(`/product/${id}`)
+        navigate(`/product/${key}`)
 }
 
       
     return (
     <div>
         <Card border="secondary" style={{ width: '250px', color:"white",backgroundColor:"" }} key={item.id}>
-        <Link to={`/product/${id}`}><Card.Img style={{marginTop:"10px", paddingRight:"10px", paddingLeft:"10px"}} variant="top" src={item.pictureUrl}/></Link>
+        <Link to={`/product/${key}`}><Card.Img style={{marginTop:"10px", paddingRight:"10px", paddingLeft:"10px"}} variant="top" src={item.pictureUrl}/></Link>
   <Card.Body>
   <Card.Title style={{fontSize:"20px", color:"black"}}>{item.title}</Card.Title>
   <Button variant="danger"
         onClick={() => setOpen(!open)}
         aria-controls="example-collapse-text"
         aria-expanded={open}
-        disabled>
+        >
         Detalles
       </Button>
       

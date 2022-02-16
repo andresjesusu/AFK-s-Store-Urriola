@@ -44,7 +44,7 @@
 
 // export default ItemDetailContainer;
 
-import { collection, doc, getDoc, query, where } from "firebase/firestore";
+import { getFirestore, doc, getDoc} from "firebase/firestore";
 import { useEffect, useState } from "react";
 
 import ItemDetail from "./ItemDetail";
@@ -60,19 +60,12 @@ const ItemDetailContainer = () => {
   const [product, setProduct] = useState();
 
   useEffect(() => {
-    const getFromFirebase = async () => {
-      const q = query(
-        collection(db, "productListData"),
-        where("id", "==", "juegos")
-      );
-
-      const docRef = doc(db, "productListData", "12Pb1sXzuwkSLto3MA7N");
-      const docSnapshot = await getDoc(docRef);
-      setProduct(docSnapshot.data());
-    };
-    getFromFirebase();
-  }, []);
-
+    const db = getFirestore();
+    const queryProduct = doc(db, `productListData`, id);
+    getDoc(queryProduct).then((resp) => {
+      setProduct({ id: resp.id, ...resp.data() });
+    });
+  }, [id]);
   return (
     <div>
       {product ? <ItemDetail item={product} /> : <Loading />}
