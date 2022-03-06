@@ -43,7 +43,7 @@ const mostrarCarrito = () => {
                     <Card className="mb-10">
                         <Card.Header>
                             <nav className="header-navigation">
-                            <Link to="/" className="btn btn-link">Volver atras</Link>
+                            <Button variant="success" onClick={volver}>Volver Atras</Button>
 
                             <Breadcrumb>
                                 <Breadcrumb.Item>Switch</Breadcrumb.Item>
@@ -57,7 +57,7 @@ const mostrarCarrito = () => {
                                 <Col xs={7} className="product-info">
                         <Carousel variant="dark">
   <Carousel.Item interval={2000}>
-    <img style={{width :"300px", height:"450px"}}
+    <img style={{marginLeft: "230px", width :"300px", height:"450px"}}
       
       src={item.pictureUrl}
       alt="First slide"

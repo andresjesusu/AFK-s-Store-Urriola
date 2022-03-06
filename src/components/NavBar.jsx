@@ -9,9 +9,13 @@ const NavBar = () => {
 
   return (
     <>
-  <Navbar bg="danger" variant="dark" className='navBarC'>
+     <Navbar bg="danger" variant="dark" expand="lg" className='navBarC' sticky="top" style={{ fontSize: "0.8rem", backgroundColor: "#fff159" }}>
     <Container>
     <Navbar.Brand href="/"><img style={{ width:"200px"}} src={logo1} alt="" /></Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+    <Navbar.Collapse id="basic-navbar-nav-2">
+
     <Nav className="me-auto">
       <Nav.Link href="/">HOME</Nav.Link>
       <Nav.Link href="/">SWITCH</Nav.Link>
@@ -38,7 +42,8 @@ const NavBar = () => {
     <NavLink to="/cart">
               <CartWidget/>
     </NavLink>
-
+    </Navbar.Collapse>
+  
     </Container>
   </Navbar>
 </>

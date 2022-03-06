@@ -103,9 +103,7 @@ const ItemListContainer = ({ props }) => {
 
   return (
     <>
-      <div>
-        <h3>Catálogo</h3>
-      </div>
+  
       <ItemList productos={productos} />
     </>
   );

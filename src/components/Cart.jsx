@@ -4,6 +4,7 @@ import { addDoc, collection, doc } from "firebase/firestore";
 import { db } from "../firebase.js";
 import { useState } from 'react';
 import { CheckCircle } from 'react-bootstrap-icons';
+import { useNavigate } from 'react-router-dom';
 
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
@@ -18,6 +19,12 @@ const Cart = () => {
     email: "",
     phone: "",
   });
+
+  const navigate = useNavigate()
+  
+  const volver = () => {
+    navigate("/", { replace: false });
+  };
 
   const checkout = () => {
     console.log(items);
@@ -82,10 +89,7 @@ const Cart = () => {
                     <div key={index}>
                       <Row>
                       <Col xs={2}>
-                              <Button style={{marginTop:"30px", height:"40px", marginLeft:"40px"}}
-                                xs={2}
-                                variant="primary"
-                                variant="danger"
+                              <Button style={{marginTop:"30px", height:"40px", marginLeft:"40px"}} xs={2}variant="primary"
                                 onClick={() => removeItem(item.id)}
                               >x
                               </Button>
@@ -159,7 +163,8 @@ const Cart = () => {
                   </h4>
                 </Col>
                 <Col xs={3}>
-                  <Button variant="success" onClick={checkout}>Terminar comprar</Button>
+                  <Button variant="success" onClick={checkout}>Terminar Compra</Button>
+                  <Button variant="secondary" onClick={volver}>Seguir Compra</Button>
                 </Col>
               </Row>
             </Card.Footer>

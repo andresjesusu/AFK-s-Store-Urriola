@@ -7,13 +7,14 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import ItemListContainer from './components/ItemListContainer';
 import { CartProvider } from "./context/CartContext";
-// import AddItem from './components/AddItem';
+import Footer from './components/Footer';
 
 
 const App = () => {
 
   return (
-    <div className="App">
+    <div className="page-container">
+      <div className="content-wrap">
     <CartProvider>
   <BrowserRouter>
     <Routes>
@@ -28,6 +29,8 @@ const App = () => {
     </Routes>
   </BrowserRouter>
   </CartProvider>
+  </div>
+  <Footer/>
   </div>
   );
 }

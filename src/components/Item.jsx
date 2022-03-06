@@ -23,8 +23,8 @@ const goToProduct = () => {
         <Card border="secondary" style={{ width: '250px', color:"white",backgroundColor:"" }} key={item.id}>
         <Link to={`/product/${key}`}><Card.Img style={{marginTop:"10px", paddingRight:"10px", paddingLeft:"10px"}} variant="top" src={item.pictureUrl}/></Link>
   <Card.Body>
-  <Card.Title style={{fontSize:"20px", color:"black"}}>{item.title}</Card.Title>
-  <Button variant="danger"
+  <Card.Title style={{fontSize:"20px", color:"black", textAlign:"center"}}>{item.title}</Card.Title>
+  <Button style={{marginLeft: "22px"}} variant="danger"
         onClick={() => setOpen(!open)}
         aria-controls="example-collapse-text"
         aria-expanded={open}
@@ -45,7 +45,7 @@ const goToProduct = () => {
           </div>
         </Collapse>
       
-  <Button variant="success" onClick={() => goToProduct()}>Comprar</Button>
+  <Button style={{marginLeft: "5px"}} variant="success" onClick={() => goToProduct()}>Comprar</Button>
 
     </Card.Body>
 </Card>
