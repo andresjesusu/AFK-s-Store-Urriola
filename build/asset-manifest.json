@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/andresjesusu/AFK-s-Store-Urriola/static/css/main.3fc673dd.css",
+    "main.js": "/andresjesusu/AFK-s-Store-Urriola/static/js/main.21f01063.js",
+    "static/js/787.7aa0ccc9.chunk.js": "/andresjesusu/AFK-s-Store-Urriola/static/js/787.7aa0ccc9.chunk.js",
+    "static/media/mario.png": "/andresjesusu/AFK-s-Store-Urriola/static/media/mario.91bd54193e017319fc50.png",
+    "static/media/logo1.png": "/andresjesusu/AFK-s-Store-Urriola/static/media/logo1.7aa14fd8e1c2ce96b34e.png",
+    "index.html": "/andresjesusu/AFK-s-Store-Urriola/index.html",
+    "main.3fc673dd.css.map": "/andresjesusu/AFK-s-Store-Urriola/static/css/main.3fc673dd.css.map",
+    "main.21f01063.js.map": "/andresjesusu/AFK-s-Store-Urriola/static/js/main.21f01063.js.map",
+    "787.7aa0ccc9.chunk.js.map": "/andresjesusu/AFK-s-Store-Urriola/static/js/787.7aa0ccc9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3fc673dd.css",
+    "static/js/main.21f01063.js"
+  ]
+}
