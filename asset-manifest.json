@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/AFK-s-Store-Urriola/static/css/main.5d3eec66.css",
+    "main.js": "/AFK-s-Store-Urriola/static/js/main.a0b2276c.js",
+    "static/js/787.7aa0ccc9.chunk.js": "/AFK-s-Store-Urriola/static/js/787.7aa0ccc9.chunk.js",
+    "static/media/mario.png": "/AFK-s-Store-Urriola/static/media/mario.91bd54193e017319fc50.png",
+    "static/media/logo1.png": "/AFK-s-Store-Urriola/static/media/logo1.7aa14fd8e1c2ce96b34e.png",
+    "index.html": "/AFK-s-Store-Urriola/index.html",
+    "main.5d3eec66.css.map": "/AFK-s-Store-Urriola/static/css/main.5d3eec66.css.map",
+    "main.a0b2276c.js.map": "/AFK-s-Store-Urriola/static/js/main.a0b2276c.js.map",
+    "787.7aa0ccc9.chunk.js.map": "/AFK-s-Store-Urriola/static/js/787.7aa0ccc9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5d3eec66.css",
+    "static/js/main.a0b2276c.js"
+  ]
+}
