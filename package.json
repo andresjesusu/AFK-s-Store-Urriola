@@ -1,5 +1,5 @@
 {
-  "homepage": "https://andresjesusu.github.io/AFK-s-Store-Urriola/",
+  "homepage": "https://andresjesusu.github.io/ReactProject/",
   "name": "tienda",
   "version": "0.1.0",
   "private": true,
@@ -26,7 +26,8 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "reactstrap": "^9.0.1",
-    "web-vitals": "^2.1.2"
+    "web-vitals": "^2.1.2",
+    "yarn": "^1.22.18"
   },
   "scripts": {
     "start": "react-scripts start",
